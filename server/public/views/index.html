@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Message Board</title>
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/message.controller.js"></script>
+
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="MessageController as vm">
+        <h1>Message Board</h1>
+        <div class="row">
+            <div class="col-md-12">
+            <form>
+                <label for="name">UserName: </label>
+                <input type="text" ng-model="vm.newMessage.username" id="name" placeholder="Name" />
+                <label for="location">Message: </label>
+                <input type="text" ng-model="vm.newMessage.message" id="message" placeholder="Message" />
+                <button class="btn btn-primary" ng-click="vm.addMessage()">Submit</button>
+            </form>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+              <div ng-repeat="mes in vm.displayMessage" class="well col-md-3">
+                <p>{{mes.username}} said: {{mes.message}}</p>
+
+                <!-- <button ng-click="peeps.updatePerson(person._id)" class="btn btn-default">Update</button>
+                <button ng-click="peeps.deletePerson(person._id)" class="btn btn-danger">Delete</button>
+                <button class="btn btn-default" ng-click="peeps.addPoints(person._id, person.internetPoints)">Add 100 Internet Points</button> -->
+              </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
