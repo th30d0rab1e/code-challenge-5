@@ -2,22 +2,22 @@ var express = require('express');
 var router = express.Router();
 var Message = require('../models/message.schema.js');
 
-// router.delete('/:id', function(req, res) {
-//   console.log('delete with id: ', req.params.id);
-//
-//   Message.findByIdAndRemove(
-//     { _id: req.params.id }, // how do i find this document?
-//     function(err, data) {
-//       if(err) {
-//         console.log('remove error: ', err);
-//         res.sendStatus(500);
-//       } else {
-//         res.sendStatus(200);
-//       }
-//     }
-//   )
-//
-// });
+router.delete('/:id', function(req, res) {
+  console.log('delete with id: ', req.params.id);
+
+  Message.findByIdAndRemove(
+    { _id: req.params.id }, // how do i find this document?
+    function(err, data) {
+      if(err) {
+        console.log('remove error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    }
+  )
+
+});
 
 // router.put('/:id', function(req, res) {
 //   console.log('new location: ', req.body);

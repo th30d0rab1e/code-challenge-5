@@ -34,13 +34,13 @@ myApp.controller('MessageController', ['$http', function($http) {
     //     });
     // }
 
-    // vm.deletePerson = function(id) {
-    //   console.log('delete person with id: ', id);
-    //   $http.delete('/person/' + id)
-    //     .then(function(response) {
-    //       getPeople();
-    //     });
-    // }
+    vm.deleteMessage = function(id) {
+      console.log('delete message with id: ', id);
+      $http.delete('/message/' + id)
+        .then(function(response) {
+          getMessage();
+        });
+    }
 
     function getMessage() {
       $http.get('/message').then(function(response) {
